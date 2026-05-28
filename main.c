@@ -5,6 +5,21 @@
 #define LINHAS 5
 #define COLUNAS 8
 
+
+void printarMatriz(int matriz[LINHAS][COLUNAS]) {
+    printf("\n--- MATRIZ DE PALAVRAS CRUZADAS ---\n");
+    for (int i = 0; i < LINHAS; i++) {
+        for (int j = 0; j < COLUNAS; j++) {
+            // %3d serve para alinhar os números com até 3 casas decimais
+            printf("%3d ", matriz[i][j]);
+        }
+        printf("\n"); // Quebra de linha ao fim de cada linha da matriz
+    }
+    printf("-----------------------------------\n");
+}
+
+
+
 int main(){
 
     int matriz[LINHAS][COLUNAS] = {
@@ -14,6 +29,8 @@ int main(){
     {-1,  0,  0,  0,  0, -1,  0,  0},
     { 0,  0, -1,  0,  0,  0, -1, -1}
 };
+
+    printarMatriz(matriz);
 
 
     int contador = 0;
@@ -34,6 +51,7 @@ int main(){
                     {
                         contador++;
                         matriz[i][j] = contador;
+                        continue;
                     }
                     
                 }
@@ -51,14 +69,13 @@ int main(){
                     
                 }
                 
-
-
-
                 
             }
 
         }
         
     }
+
+    printarMatriz(matriz);
 
 }
